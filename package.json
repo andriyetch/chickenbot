@@ -1,0 +1,27 @@
+{
+  "name": "chickenbot",
+  "version": "1.0.0",
+  "description": "Michiel Mulders shows you how to install and set up a new Discord bot, which is made easier thanks to the API offered by the Discord.js package.",
+  "main": "index.js",
+  "scripts": {
+    "dc": "node deploy-commands.js",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andriyetch/chickenbot.git"
+  },
+  "author": "Andriy Etcheverry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andriyetch/chickenbot/issues"
+  },
+  "homepage": "https://github.com/andriyetch/chickenbot#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.23.1",
+    "discord.js": "^13.1.0",
+    "nodemon": "^2.0.13"
+  }
+}
