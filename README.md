@@ -9,7 +9,7 @@
 * To see a full list of commands, simply type `!commands` 
 * Comprehensive logging is built into the bot, which saves daily logs as html files in the `/logs` directory
 
-### To get the bot running on your machine: 
+## To get the bot running on your machine: 
 #### 1. Copy this github repo to your desired location
 
 #### 2. Create a new application with a unique name for your bot at https://discord.com/developers/applications
