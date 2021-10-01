@@ -5,6 +5,7 @@
 * The bot uses puppeteer to open a headless instance of Google Chrome, access the given link (for sites that require logins it will use your active session), and generate a pdf
 * Some more useful and sometimes fun functionality will be added in the future
 * To see a full list of commands, simply type `!commands` 
+* Comprehensive logging is built into the bot, which saves daily logs as html files in the `/logs` directory
 
 ### To get the bot running on your machine: 
 #### 1. Copy this github repo to your desired location
