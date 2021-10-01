@@ -1,7 +1,9 @@
 # Welcome to ChickenBot!
 
 ## Features:
-* Main functionality is that the bot can return pdfs of any webpage you give it. Simply use the format `!pdf https://www.example.com`
+* Main functionality is that the bot can return pdfs of any webpage you give it. Simply use the following format 
+
+      `!pdf https://www.example.com`
 * The bot uses puppeteer to open a headless instance of Google Chrome, access the given link (for sites that require logins it will use your active session), and generate a pdf
 * Some more useful and sometimes fun functionality will be added in the future
 * To see a full list of commands, simply type `!commands` 
