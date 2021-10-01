@@ -27,7 +27,7 @@ client.on('messageCreate', message => {
         args[0] = args[0].substring(1);
 
         switch (args[0]) {
-            case 'chegg': 
+            case 'pdf': 
                 if (args[1]) {
                     service.checkingLink(message);
                     try {
