@@ -56,11 +56,3 @@ client.on('messageCreate', message => {
 });
 
 client.login(token);
-
-// async function ayyboss(message) {
-//     if (message.content.toLowerCase().includes('chickenbot')) {
-//         message.channel.send("Heard you were talkin shit...");
-//         await service.sleep(6);
-//         message.channel.send("Best remember who runs these streets cuh");
-//     }
-// }
