@@ -44,6 +44,9 @@ client.on('messageCreate', message => {
                     }
                 }
                 break;
+            case 'chegg':
+                message.channel.send("You goofy motherfucker, use !pdf instead of !chegg");
+                break;
             case 'logs': 
                 message.channel.send("chill out for a sec I can't do that yet sheesh");
                 break;
@@ -56,3 +59,4 @@ client.on('messageCreate', message => {
 });
 
 client.login(token);
+
