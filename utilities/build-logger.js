@@ -1,13 +1,16 @@
-const {format, createLogger, transports} = require('winston');
+import winston from 'winston';
+const {format, createLogger, transports} = winston;
 const {timestamp, combine, printf} = format;
 
-function buildProdLogger() {
+export default function buildLogger() {
 
+    var logger;
+    
     //getting date info for file naming
-    currentDate = new Date();
-    m = currentDate.getMonth() + 1;
-    d = currentDate.getDate();
-    y = currentDate.getFullYear();
+    var currentDate = new Date();
+    var m = currentDate.getMonth() + 1;
+    var d = currentDate.getDate();
+    var y = currentDate.getFullYear();
 
     //logging format for console
     const consoleFormat = printf(({ level, message, timestamp, stack}) => {
@@ -50,5 +53,3 @@ function buildProdLogger() {
         ],
     });
 }
-
-module.exports = buildProdLogger;
