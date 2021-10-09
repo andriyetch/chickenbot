@@ -3,6 +3,7 @@ const { Client, Intents } = pkg;
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 import config from './config.json';
 import * as util from './utilities/functions.js';
+//import * as sUtil from './utilities/secret-functions.js';
 import buildLogger from './utilities/build-logger.js';
 import cron from 'node-cron';
 
@@ -13,7 +14,7 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', message => {
-    util.chickenOG(message);
+    //sUtil.chickenOG(message);
     
     if (message.content.slice(0,1) == '!') {
         message.suppressEmbeds();
@@ -22,7 +23,7 @@ client.on('messageCreate', message => {
 });
 
 cron.schedule(`5 0 * * *`, () => {
-    console.log(`index.js logger has been rebuilt for current date: ${util.getDateString()}`);
+    console.log(`Logger in index.js has been rebuilt for current date: ${util.getDateString()}`);
     logger = buildLogger();
 });
 

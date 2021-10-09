@@ -2,7 +2,8 @@ import cheggbot from '../cheggbot/pagetopdf.js';
 import * as util from '../utilities/functions.js';
 import buildLogger from '../utilities/build-logger.js';
 
-async function run(message, url) {
+async function run(message) {
+    var url = message.content.split(' ')[1];
     var logger = buildLogger();
     if (url) {
         util.checkingLink(message);

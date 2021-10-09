@@ -26,20 +26,8 @@ function randomIntFromInterval(min, max) {
 }
 
 function handleCommand(message) {
-    var args = message.content.split(' ');
-    args[0] = args[0].substring(1);
-    
-    switch (args[0]) {
-        case 'pdf': commands.pdf.run(message, args[1]);
-            break;
-        case 'chegg': commands.chegg.run(message);
-            break;
-        case 'logs': commands.logs.run(message);
-            break;
-        case 'feed': commands.feed.run(message);
-            break;
-        case 'commands': commands.commands.run(message);
-    }
+    var userCommand = message.content.split(' ')[0].substring(1);
+    commands[userCommand].run(message);
 }
 
 function checkingLink(message) {
@@ -53,17 +41,8 @@ function checkingLink(message) {
     message.channel.send(responses[Math.floor(Math.random()*responses.length)]);
 }
 
-async function chickenOG(message) {
-    logger.warn("CHICKEN OG");
-    if (message.content.toLowerCase().includes('chickenbot')) {
-        message.channel.send("Heard you were talkin shit...");
-        await this.sleep(6);
-        message.channel.send("Best remember who runs these streets cuh");
-    }
-}
-
 cron.schedule(`5 0 * * *`, () => {
-    console.log(`functions.js has been rebuilt for current date: ${util.getDateString()}`);
+    console.log(`Logger in functions.js has been rebuilt for current date: ${util.getDateString()}`);
     logger = buildLogger();
 });
 

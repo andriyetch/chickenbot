@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/andriyetch/chickenbot#readme",
   "dependencies": {
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.23.1",
     "discord.js": "^13.2.0-dev.1633089797.fe95005",
     "node-cron": "^3.0.0",
     "nodemon": "^2.0.13",
