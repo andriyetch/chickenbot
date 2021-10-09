@@ -46,4 +46,4 @@ cron.schedule(`5 0 * * *`, () => {
     logger = buildLogger();
 });
 
-export {getDateString, sleep, randomIntFromInterval, handleCommand, checkingLink, chickenOG}
+export {getDateString, sleep, randomIntFromInterval, handleCommand, checkingLink}
