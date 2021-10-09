@@ -3,4 +3,6 @@ logs/*
 !logs/.gitkeep
 cheggbot/answers/*
 !cheggbot/answers/.gitkeep
-config.json
+configblank.json
+conf.json
+secret-functions.js

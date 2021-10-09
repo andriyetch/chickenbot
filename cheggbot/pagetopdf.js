@@ -1,11 +1,12 @@
-const puppeteer = require('puppeteer');
-const buildLogger = require('../utilities/build-logger');
+import pkg from 'puppeteer';
+const puppeteer = pkg;
+import buildLogger from '../utilities/build-logger.js';
 
-module.exports = {
-    run: async function run(url) {
+async function run(url) {
         
         const logger = buildLogger();
 
+        logger.info();
         logger.info('====PAGETOPDF.JS====');
         logger.info();
 
@@ -56,12 +57,13 @@ module.exports = {
             return true;
 
         } catch (error) {
-            //logger.error(error);
+            logger.error(error);
             return false;
         }
         
-    }
 }
+
+export default {run}
 
 const preparePageForTests = async (page) => {
     await page.evaluateOnNewDocument(() => {
