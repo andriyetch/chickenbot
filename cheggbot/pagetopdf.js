@@ -75,6 +75,5 @@ const preparePageForTests = async (page) => {
 
 function sleep(min, max=min+1) {
     var ms = Math.floor((Math.random() * (max-min) + min)*1000);
-    //logger.warn(`Waiting ${ms} milliseconds before proceeding to next student`);
     return new Promise(resolve => setTimeout(resolve, ms));
 }
