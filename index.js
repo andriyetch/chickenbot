@@ -3,7 +3,6 @@ const { Client, Intents } = pkg;
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 import config from './config.json';
 import * as util from './utilities/functions.js';
-//import * as sUtil from './utilities/secret-functions.js';
 import buildLogger from './utilities/build-logger.js';
 import cron from 'node-cron';
 
@@ -14,8 +13,6 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', message => {
-    //sUtil.chickenOG(message);
-    
     if (message.content.slice(0,1) == '!') {
         message.suppressEmbeds();
         util.handleCommand(message);
