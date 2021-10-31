@@ -28,11 +28,13 @@ async function run(message) {
     //logger.warn(msgRef.content);
     logger.info();
 
-    puppet(args[1], msgRef, logger).then(() => {
+    puppet(args[1], msgRef, logger).then(async (msgRef) => {
         message.channel.send({
             files: ['./pdfs/chegg.pdf']
         });
         logger.info(`PDF sent in discord`);
+        await util.sleep(7)
+        msgRef.delete();
     })
     .catch((err) => {
         logger.error(`Some error occurred trying to convert ${args[1]} to PDF`);
@@ -83,13 +85,12 @@ function puppet(url, msgRef, logger) {
             msgRef = await msgRef.edit(msgRef.content.substring(0, msgRef.content.length-3) + 'PDF created in answers directory\n```');
 
             await logger.info(`Closing browser process...`);
-            msgRef = await msgRef.edit(msgRef.content.substring(0, msgRef.content.length-3) + 'Closing browser process...\n```');
             await util.sleep(0.5);
             await browser.close();
             
             await logger.info(`Browser process closed`);
             msgRef = await msgRef.edit(msgRef.content.substring(0, msgRef.content.length-3) + 'Browser process closed\n```');
-            resolve()
+            resolve(msgRef)
         } catch (error) {
             reject(error)
         }
