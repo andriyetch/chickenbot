@@ -1,15 +1,15 @@
 import YoutubeMp3Downloader from "youtube-mp3-downloader";
 import buildLogger from '../utilities/build-logger.js';
+import config from '../config.json'
 import validator from 'validator';
 
 async function run (message) {
     var logger = buildLogger();
     var link = message.content.split(' ')[1]
-    if (!link) {
-        message.channel.send("Usage: `!mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ`");
-        return
-    }
+    if (!link) return message.channel.send("Usage: `!mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ`");
+
     var msgRef = await message.channel.send("Converting to mp3...");
+
     urlWork(link).then((videoID) => {
         console.log(`Converting ${link} to mp3`)
         convertVideo(msgRef, videoID).then((file) => {
@@ -27,7 +27,7 @@ async function run (message) {
 function convertVideo (msgRef, videoID) {
     return new Promise((resolve, reject) => {    
         var YD = new YoutubeMp3Downloader({
-            "ffmpegPath": "C:/Users/andri/ffmpeg/bin/ffmpeg",
+            "ffmpegPath": config.ffmpeg_path,
             "outputPath": "./mp3s",
             "youtubeVideoQuality": "highestaudio",
             "queueParallelism": 1,

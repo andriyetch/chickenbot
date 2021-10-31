@@ -2,13 +2,22 @@ import puppeteer from 'puppeteer-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 puppeteer.use(StealthPlugin());
 import * as util from '../utilities/functions.js';
+import config from '../config.json'
 import buildLogger from '../utilities/build-logger.js';
 
 function run(message) {
     var logger = buildLogger();
+    var args = message.content.split(' ');
 
-    var url = message.content.split(' ')[1];
-    if (!util.validator.isURL(url)) return message.channel.send("Usage: `!pdf https://www.chegg.com/answerpagelink`");
+    logger.warn(typeof args[1])
+    if (!util.validator.isURL(args[1]) && args[1] != 'login') return message.channel.send("Usage: `!pdf https://www.chegg.com/answerpagelink`");
+    else if (args[1] == 'login' && util.validator.isURL(args[2])) {
+        message.channel.send('Opening browser to specified page. Please login to your account using your credentials, then close the window');
+        login(args[2], logger).then(() => {
+            logger.warn('Browser opened successfully')
+        }).catch ((err) => {logger.error(err)})
+        return
+    }
     
     util.checkingLink(message);
 
@@ -28,6 +37,27 @@ function run(message) {
     })        
 }
 
+function login (url) {
+    return new Promise (async (resolve,reject) => {
+        try {
+            const browser = await puppeteer.launch({
+                executablePath: config.browser_path,
+                headless: false,
+                userDataDir: 'C:/userData'
+            });
+
+            const page = await browser.newPage()
+            await page.goto(url, { waitUntil: 'domcontentloaded' })
+
+            resolve(`Page opened to ${url}`)
+        } catch (error) {
+            reject(error)
+        } 
+        
+
+    })
+}
+
 function puppet(url, logger) {
     return new Promise(async (resolve, reject) => {
 
@@ -37,7 +67,7 @@ function puppet(url, logger) {
             slowMo: 250,
             userDataDir: 'C:/userData'
         });
-//C:/Users/andri/AppData/Local/Google/Chrome/User Data
+
         try {
             const page = await browser.newPage()
             await page.goto(url, { waitUntil: 'domcontentloaded' })
@@ -47,7 +77,7 @@ function puppet(url, logger) {
             await logger.info(`PDF created in answers directory`);
     
             await logger.info(`Closing browser process...`)
-            await util.sleep(1);
+            await util.sleep(0.5);
             await browser.close()
             
             await logger.info(`Browser process closed`);
@@ -55,9 +85,7 @@ function puppet(url, logger) {
         } catch (error) {
             reject(error)
         }
-        
     })
-
 }
 
 export default {run}

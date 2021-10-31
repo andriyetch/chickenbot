@@ -1,3 +1,5 @@
 {
-    "token" : ""
+    "token": "", 
+    "ffmpeg_path": "C:/Users/andri/ffmpeg/bin/ffmpeg",
+    "browser_path": "C:/Program Files/Google/Chrome/Application/chrome.exe"
 }
