@@ -6,3 +6,5 @@ cheggbot/answers/*
 configblank.json
 conf.json
 secret-functions.js
+mp3s/*
+!mp3s/.gitkeep

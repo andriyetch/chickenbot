@@ -25,6 +25,10 @@
     "node-cron": "^3.0.0",
     "nodemon": "^2.0.13",
     "puppeteer": "^10.4.0",
-    "winston": "^3.3.3"
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-stealth": "^2.9.0",
+    "validator": "^13.6.0",
+    "winston": "^3.3.3",
+    "youtube-mp3-downloader": "^0.7.8"
   }
 }

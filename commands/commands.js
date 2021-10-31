@@ -5,6 +5,7 @@ function run (message) {
 
 var str = `
 !pdf: Returns a given link as a PDF
+!mp3: Returns an mp3 from a given YouTube link
 !feed: Feeds the Chicken
 !commands: You know what this does already
 `
