@@ -1,12 +1,20 @@
 # Welcome to ChickenBot!
 
-## Features:
-* Main functionality is that the bot can return pdfs of any webpage you give it. Simply use the following format 
+## Commands:
+* `!pdf https://www.example.com`
+    * Bot will return a pdf of any webpage you give it. Simply use the following format 
+    * Uses [puppeteer-extra](https://www.npmjs.com/package/puppeteer-extra) with Stealth Plugin to access the given link with a headless instance of chrome, generates a PDF of the page, and sends the file in the Discord Chat
 
-`!pdf https://www.example.com`
-* The bot uses puppeteer to open a headless instance of Google Chrome, access the given link (for sites that require logins it will use your active session), and generate a pdf
-* Some more useful and sometimes fun functionality will be added in the future
-* To see a full list of commands, simply type `!commands` 
+* `!mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+    * Bot will return an mp3 file for any given YouTube link
+    * Uses [**youtube-mp3-downloader**](https://www.npmjs.com/package/youtube-mp3-downloader) as well as [**ffmpeg**](https://www.ffmpeg.org/) to download and convert the video
+
+* `!feed` 
+    * Feeds the Chicken and keeps him happy
+
+* `!commands`
+    * Displays all available commands
+   
 * Comprehensive logging is built into the bot, which saves daily logs as html files in the `/logs` directory
 
 ## To get the bot running on your machine: 
