@@ -10,3 +10,4 @@ mp3s/*
 !mp3s/.gitkeep
 pdfs/*
 !pdfs/.gitkeep
+/utilities/chickenstats.json
