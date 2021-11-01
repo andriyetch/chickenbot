@@ -7,7 +7,7 @@
 
 * `!mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ`
     * Bot will return an mp3 file for any given YouTube link
-    * Uses [**youtube-mp3-downloader**](https://www.npmjs.com/package/youtube-mp3-downloader) as well as [**ffmpeg**](https://www.ffmpeg.org/) to download and convert the video
+    * Uses [**youtube-mp3-downloader**](https://www.npmjs.com/package/youtube-mp3-downloader) with [**ffmpeg**](https://www.ffmpeg.org/) to download and convert the video
 
 * `!feed` 
     * Feeds the Chicken and keeps him happy
