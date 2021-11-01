@@ -76,9 +76,17 @@ function puppet(url, msgRef, logger) {
         msgRef = await msgRef.edit(msgRef.content.substring(0, msgRef.content.length-3) + "Starting browser process\n```")
 
         try {
+
+            const userAgent = 'Mozilla/5.0 (X11; Linux x86_64)' +
+            'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Safari/537.36';
+
             const page = await browser.newPage()
-            await page.goto(url, { waitUntil: 'domcontentloaded' });
-            await util.sleep(2);
+            
+            await page.setUserAgent(userAgent);
+            await page.setJavaScriptEnabled(true);
+            await page.setDefaultNavigationTimeout(0);
+
+            await page.goto(url, { waitUntil: 'networkidle0' });
             await page.pdf({ path: 'pdfs/chegg.pdf', format: 'a4' });
     
             await logger.info('PDF created in answers directory');
