@@ -78,7 +78,7 @@ function puppet(url, msgRef, logger) {
         try {
             const page = await browser.newPage()
             await page.goto(url, { waitUntil: 'domcontentloaded' });
-            
+            await util.sleep(2);
             await page.pdf({ path: 'pdfs/chegg.pdf', format: 'a4' });
     
             await logger.info('PDF created in answers directory');
