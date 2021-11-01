@@ -3,11 +3,10 @@ logs/*
 !logs/.gitkeep
 cheggbot/answers/*
 !cheggbot/answers/.gitkeep
-configblank.json
-conf.json
+configcopy.json
 secret-functions.js
 mp3s/*
 !mp3s/.gitkeep
-pdfs/*
-!pdfs/.gitkeep
+answers/*
+!answers/.gitkeep
 /utilities/chickenstats.json

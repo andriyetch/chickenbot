@@ -22,35 +22,9 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function canBeUsedInGeneral(command) {
-    var status = {
-        "pdf":false,
-        "pdf2":false,
-        "mp3":false,
-        "feed":true,
-        "commands":true
-    }
-    switch(status[command]) {
-        case true: return true
-            break
-        case false: return false
-            break
-        default: return undefined
-    }
-}
-
 function handleCommand(message) {
-
     var userCommand = message.content.split(' ')[0].substring(1);
-    switch(canBeUsedInGeneral(userCommand)) {
-        case true:      commands[userCommand].run(message);
-                        break;
-        case false:     if (message.channel.name == 'bot-firing-range' || message.channel.name == 'testing') commands[userCommand].run(message); 
-                        else message.channel.send(message.author.toString() + " Please use this command in " + message.guild.channels.cache.get('904264306844106773').toString());
-                        break;
-        case undefined: message.channel.send("That's not a valid command silly");
-                        break;
-    }
+    commands[userCommand].run(message);
 }
 
 function checkingLink(message) {

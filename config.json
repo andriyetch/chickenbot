@@ -1,5 +1,7 @@
 {
     "token": "", 
-    "ffmpeg_path": "C:/Users/andri/ffmpeg/bin/ffmpeg",
-    "browser_path": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+    "ffmpeg_path": "C:/Program Files/ffmpeg/bin/ffmpeg",
+    "browser_path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "screenshot_dir": "./answers/chegg.png",
+    "pdf_dir": "./answers/chegg.pdf"
 }
