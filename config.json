@@ -3,6 +3,6 @@
     "ffmpeg_path": "C:\\Program Files\\ffmpeg\\bin\\ffmpeg",
     "browser_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
     "chrome_data_path": "C:\\Users\\andri\\AppData\\Local\\Google\\Chrome\\User Data",
-    "screenshot_dir": "C:\\Users\\andri\\Github\\chickenbot\\answers\\chegg.png",
-    "pdf_dir": "C:\\Users\\andri\\Github\\chickenbot\\answers\\chegg.pdf"
+    "screenshot_dir": "./answers/chegg.png",
+    "pdf_dir": "./answers/chegg.pdf"
 }
