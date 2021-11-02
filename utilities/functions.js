@@ -23,17 +23,19 @@ function randomIntFromInterval(min, max) {
 }
 
 function handleCommand(message) {
+    const validCommands = ['pdf', 'mp3', 'feed', 'commands'];
     var userCommand = message.content.split(' ')[0].substring(1);
+    if (!validCommands.includes(userCommand)) return message.channel.send("Sorry that's not a valid command!");
     commands[userCommand].run(message);
 }
 
 function checkingLink(message) {
     var responses = [
-        "Working on your request...",
-        "Chegging your link...", 
-        "\*Chicken noises\*",
-        "Let me chegg on that for ya...",
-        "I gotchu, one sec..."
+        "Working on your request... :chicken:",
+        "Chegging your link... :chicken:", 
+        ":chicken: \*Chicken noises\*  :chicken:",
+        "Let me chegg on that for ya...  :chicken:",
+        "I gotchu, one sec...  :chicken:"
     ]
     message.channel.send(responses[Math.floor(Math.random()*responses.length)]);
 }
