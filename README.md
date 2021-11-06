@@ -15,18 +15,22 @@
 * `!commands`
     * Displays all available commands
    
-* Comprehensive logging is built into the bot, which saves daily logs as html files in the `/logs` directory
+* Comprehensive logging is built into the bot, which saves daily logs as html files (viewable in browser) in the `/logs` directory
 
 ## To get the bot running on your machine: 
 #### 1. Copy this github repo to your desired location
 
 #### 2. Create a new application with a unique name for your bot at https://discord.com/developers/applications
-  * in the OAuth2 section make sure `bot` and `applications.commands` are selected, and paste the link that's generated into a new browser tab.
+  * in the OAuth2 section make sure `bot` and `applications.commands` are selected, and paste the link that's generated into a new browser tab. Before you hit enter on the link change `permissions=0` to `permissions=8`
   * you'll be prompted to select which server you want to add the bot to, then click Authorize
   * back on the discord website, go to the Bot section and copy the token for your bot
 
 #### 3. In the project folder open up `config.json` with an editor (VSCode recommended)
-  * paste your discord bot's token here, as well as your installation directories for ffmpeg and chrome
+  * paste your discord bot's token here
+  * if you want !mp3 to work you'll need [ffmpeg](https://ffmpeg.org/) installed, make sure the path is accurate
+  * make sure your Chrome install path is accurate (might be Program Files (x86) instead of Program Files)
+  * make sure your chrome_data_path is accurate. Should just need to change to your username, but you can view the full path by entering `chrome://version` in your Chrome URL bar. Make sure the path cuts off after `User Data` (dont need /Default)
+
 
 #### 4. Open up Command Prompt on your PC, navigate to the root directory of the project, and enter the command `npm run start` and voila your bot is running!
 
