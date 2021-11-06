@@ -3,7 +3,7 @@ import buildLogger from '../utilities/build-logger.js';
 import config from '../config.json'
 import validator from 'validator';
 
-async function run (message) {
+async function run (message, args) {
     var logger = buildLogger();
     var link = message.content.split(' ')[1]
     if (!link) return message.channel.send("Usage: `!mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ`");

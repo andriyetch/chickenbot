@@ -1,5 +1,21 @@
 import commands from '../commands/index.js';
 import validator from 'validator';
+import buildLogger from './build-logger.js';
+import cron from 'node-cron';
+var logger = buildLogger();
+
+cron.schedule(`5 0 * * *`, () => {
+    console.log(`Logger in functions.js has been rebuilt for current date: ${util.getDateString()}`);
+    logger = buildLogger();
+});
+
+function handleCommand(message) {
+    const validCommands = ['pdf', 'mp3', 'feed', 'commands'];
+    const args = message.content.replace(/\s+/g,' ').trim().substring(1, message.content.length).split(' ');
+    if (!validCommands.includes(args[0])) return message.channel.send("Sorry that's not a valid command!");
+    logger.warn(`${message.author.tag} used !${args[0]}`)
+    commands[args[0]].run(message, args);
+}
 
 function getDateString() {
     var currentDate = new Date();
@@ -18,17 +34,6 @@ function sleep(seconds) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-function handleCommand(message) {
-    const validCommands = ['pdf', 'mp3', 'feed', 'commands'];
-    var userCommand = message.content.split(' ')[0].substring(1);
-    if (!validCommands.includes(userCommand)) return message.channel.send("Sorry that's not a valid command!");
-    commands[userCommand].run(message);
-}
-
 function checkingLink(message) {
     var responses = [
         "Working on your request... :chicken:",
@@ -40,4 +45,4 @@ function checkingLink(message) {
     message.channel.send(responses[Math.floor(Math.random()*responses.length)]);
 }
 
-export {getDateString, sleep, randomIntFromInterval, handleCommand, checkingLink, validator}
+export {getDateString, sleep, handleCommand, checkingLink, validator}

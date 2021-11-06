@@ -1,4 +1,4 @@
-function run (message) {
+function run (message, args) {
     message.channel.send(`Available commands:\n\`\`\`yaml\n${str}\`\`\``);
     return;
 }

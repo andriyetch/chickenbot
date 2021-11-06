@@ -2,7 +2,7 @@
 // import fs from 'fs';
 
 
-function run (message) {
+function run (message, args) {
     message.channel.send("Mmmmm\n");
     // const filePath = 'utilities/chickenstats.json'
 
